@@ -1,0 +1,3 @@
+"""
+Core - Configurações e constantes
+"""
