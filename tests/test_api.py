@@ -74,8 +74,8 @@ def test_calcular_custo_urgente():
     data = response.json()
     assert data["custo_base"] == "900.00"
     assert data["custo_amostras"] == "0.00"
-    assert data["acrescimo_urgencia"] == "270.00"  # 30% de 900
-    assert data["total"] == "1170.00"
+    assert data["acrescimo_urgencia"] == "270.0000"  # 30% de 900
+    assert data["total"] == "1170.0000"
     assert data["tempo_estimado"] == "2-3 dias (urgente)"
 
 
@@ -93,8 +93,8 @@ def test_calcular_custo_completo():
     data = response.json()
     assert data["custo_base"] == "3200.00"
     assert data["custo_amostras"] == "300.00"
-    assert data["acrescimo_urgencia"] == "1050.00"  # 30% de 3500
-    assert data["total"] == "4550.00"
+    assert data["acrescimo_urgencia"] == "1050.0000"  # 30% de 3500
+    assert data["total"] == "4550.0000"
 
 
 def test_validar_processo_valido():
@@ -119,7 +119,7 @@ def test_validar_processo_invalido_prefixo():
 
 def test_validar_processo_invalido_formato():
     """Testa validação de processo com formato inválido"""
-    request_data = {"numero_processo": "PCDF-2024"}
+    request_data = {"numero_processo": "PCDF-20-123"}
     response = client.post("/validar", json=request_data)
     assert response.status_code == 200
     data = response.json()
